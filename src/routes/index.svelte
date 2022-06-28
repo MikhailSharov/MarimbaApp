@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<main>
+	<div class="grid h-screen place-items-center bg-[url('../src/lib/test_bg.jpg')]">
+		{#if authStatus.isLoggedIn}
+			<p>Welcome {authStatus.userData.uid}!</p>
+		{:else}
+			<LoginPage/>
+	{/if }
+	</div>
+</main>
+
+
+<script>
+	import LoginPage from "./LoginPage.svelte"
+	import { app } from "../Firebase.js";
+	import { authStatus } from "../authStatus.js";
+</script>
+
