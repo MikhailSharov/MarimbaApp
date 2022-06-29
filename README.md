@@ -1,38 +1,22 @@
-# create-svelte
+#MARIMBA
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Marimba is a web app [to be on mobile in the future] designed to help friends share music with each other.
+Powered by: Firebase (backend), SvelteKit (front end), TailwindCSS (CSS Styling)
 
-## Creating a project
+Firebase was chosen as this is my first app and I wanted a complete backend solution with a database (Firestorm) and authentication.
+SvelteKit was chosen due to the ease with which it handles reactive data and the simplicity of typing it.
+TailwindCSS was chosen as I do not yet have a fantastic grasp on direct CSS handling, so and inline format was ideal.
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm init svelte
+The project is solo-developed by Mikhail Sharov
 
-# create a new project in my-app
-npm init svelte my-app
-```
+Some future features to be included (this is very WIP):
 
-## Developing
+* Firebase Authentication
+* Spotify redirect / API inclusion
+* Friend sharing feed and streaks
+* etc.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The app will be regularly updated as a side-project so stay tuned!
 
-```bash
-npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
