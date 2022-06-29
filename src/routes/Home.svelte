@@ -12,7 +12,8 @@
 		if (val == true) {
 			signOut(auth)
 				.then(() => {
-					console.log('Signed Out');
+          console.log('Signed Out');
+          location.reload()
 				})
 				.catch((error) => {});
 		}
