@@ -1,7 +1,5 @@
 <script>
-	let hello = 'Hello World';
-
-	import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+	import { getAuth, signOut } from 'firebase/auth';
 
 	const auth = getAuth();
 	const user = auth.currentUser;
