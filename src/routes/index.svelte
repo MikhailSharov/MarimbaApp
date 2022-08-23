@@ -42,11 +42,13 @@
 </script>
 
 <main>
-	<div class="grid h-screen place-items-center bg-[url('../src/lib/test_bg.jpg')]">
-		{#if user}
+	{#if user}
+		<div class="grid h-screen">
 			<Home />
-		{:else}
+		</div>
+	{:else}
+		<div class="grid h-screen place-items-center bg-[url('../src/lib/test_bg.jpg')]">
 			<LoginPage />
-		{/if}
-	</div>
+		</div>
+	{/if}
 </main>
