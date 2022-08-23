@@ -1,6 +1,6 @@
 <script>
 	import { app } from '../Firebase.js';
-	import Home from './Home.svelte';
+	import Main from './Main.svelte';
 	import LoginPage from './LoginPage.svelte';
 	import {
 		getAuth,
@@ -44,7 +44,7 @@
 <main>
 	{#if user}
 		<div class="grid h-screen">
-			<Home />
+			<Main />
 		</div>
 	{:else}
 		<div class="grid h-screen place-items-center bg-[url('../src/lib/test_bg.jpg')]">

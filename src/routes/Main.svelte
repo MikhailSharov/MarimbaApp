@@ -1,10 +1,35 @@
 <script>
 	import { getAuth, signOut } from 'firebase/auth';
+	import { getDatabase, ref, get, child, set, onValue, off } from 'firebase/database';
 
 	const auth = getAuth();
 	const user = auth.currentUser;
 
+	const db = getDatabase();
+	const dbref = ref(db);
+
 	let uid = user.uid;
+
+	var username = '';
+	const usernameRef = ref(db, 'users/' + uid + '/username');
+
+	onValue(usernameRef, (snapshot) => {
+		username = snapshot.val();
+		console.log(username)
+	})
+
+	alert(username);
+	console.log(username);
+
+	function checkUsername () {
+		if (username == '') {
+			setTimeout(checkUsername, 500);
+		} else {
+			off(usernameRef);
+		}
+	}
+
+	checkUsername();
 
 	function handleSignOut(val) {
 		if (val == true) {
@@ -16,6 +41,7 @@
 				.catch((error) => {});
 		}
 	}
+
 </script>
 
 <body>
@@ -23,7 +49,7 @@
 	<nav aria-label="primary" class="sticky top-0 bg-yellow-100 w-full flex relative justify-between items-center mx-auto px-5 h-20">
     <!-- logo -->
 		<div class="inline-flex">
-			Hello {uid}!
+			Hello {username}!
 		</div>
 		
 		<div class="relative group w-48 text-right">

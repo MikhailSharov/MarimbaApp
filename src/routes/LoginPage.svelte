@@ -15,6 +15,7 @@
 	let isOpen = false;
 
 	const auth = getAuth();
+	const db = getDatabase();
 
 	function handleSignIn(email, password) {
 		console.log('click');
@@ -28,8 +29,21 @@
 	}
 
 	function handleSignUp(username, email, password) {
-		createUserWithEmailAndPassword(auth, email, password).catch((error) => {
-			alert(error.message);
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				const user = userCredential.user;
+
+				set(ref(db, 'users/' + user.uid), {
+					username: username,
+					email: email,
+					friendreqs: ['defaultReq'],
+					friends: ['defaultFriend'],
+					verified: "FALSE"
+				})
+
+			})
+			.catch((error) => {
+				alert(error.message);
 		});
 	}
 
